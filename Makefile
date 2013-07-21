@@ -44,10 +44,10 @@ start: init stop
 stop:
 	@echo "[tree] stop"
 	@if [ -e $(PID) ]; then  \
-	  ps -p $$(cat $(PID)) >/dev/null 2>&1;  \
-	  if [ $$? -eq 0 ]; then  \
+	  ps -p $$(cat $(PID)); \
+	  if [ $$? -eq 0 ]; then \
 	    kill $$(cat $(PID)) 2>/dev/null || sudo kill $$(cat $(PID));  \
-	  fi;  \
+	  fi; \
 	  rm $(PID);  \
 	fi
 
